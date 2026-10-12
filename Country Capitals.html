@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Country Capitals</title>
+<style>
+:root{--bg:#fdf6e3;--text:#333;--cap:#c0392b;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#22211d;--text:#e8e4d8;--cap:#ff8a7a}}
+:root[data-theme="dark"]{--bg:#22211d;--text:#e8e4d8;--cap:#ff8a7a}
+
+body{background:var(--bg);color:var(--text);font-family:Verdana,Arial,sans-serif;margin:0;padding:40px 20px}
+.box{max-width:480px;margin:0 auto}
+h2{margin-top:0}
+select{font-size:16px;padding:6px 8px}
+
+/* the capital text - colour, bold and size set here */
+#capital{
+  color:var(--cap);
+  font-weight:bold;
+  font-size:28px;
+  margin-left:14px;
+}
+</style>
+</head>
+<body>
+<div class="box">
+  <h2>Find the capital</h2>
+  <p>Pick a country from the list:</p>
+
+  <select id="country" onchange="showCapital()">
+    <option value="">-- select --</option>
+    <option value="New Delhi">India</option>
+    <option value="Tokyo">Japan</option>
+    <option value="Paris">France</option>
+    <option value="Brasilia">Brazil</option>
+    <option value="Canberra">Australia</option>
+  </select>
+  <span id="capital"></span>
+</div>
+
+<script>
+function showCapital() {
+  var list = document.getElementById("country");
+  // the value of each option is its capital
+  document.getElementById("capital").innerHTML = list.value;
+}
+</script>
+</body>
+</html>
